@@ -8,8 +8,7 @@ using System.Web;
 namespace aventyrliga_kontakter.Model.DAL
 {
     public class ContactDAL : DALBase
-    {
-        
+    {        
         public void DeleteContact(int contactId)
         {
             using (SqlConnection conn = CreateConnection())
@@ -63,12 +62,10 @@ namespace aventyrliga_kontakter.Model.DAL
                             };
                         }
                     }
-
                     return null;
                 }   
                 catch (Exception)
                 {
-
                     throw new ApplicationException("An error has occured when trying to get a contact by ID from the database.");
                 }
             }
@@ -172,7 +169,6 @@ namespace aventyrliga_kontakter.Model.DAL
         {
             using (var conn = CreateConnection())
             {
-
                 try
                 {              
                     var cmd = new SqlCommand("Person.uspAddContact", conn);
@@ -214,7 +210,6 @@ namespace aventyrliga_kontakter.Model.DAL
                     conn.Open();
 
                     cmd.ExecuteNonQuery();
-
                 }
                 catch (Exception)
                 {

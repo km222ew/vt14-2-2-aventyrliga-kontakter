@@ -56,7 +56,5 @@ namespace aventyrliga_kontakter.Model
                 ContactDAL.UpdateContact(contact);
             }
         }
-
-
     }
 }
