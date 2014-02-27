@@ -13,8 +13,11 @@
         <div>
             <%-- Validation-summary --%>
             <div>
-                <asp:ValidationSummary ID="ValidationSummary2" runat="server" HeaderText="Fel inträffade. Korrigera det som är fel och försök igen." />
-                <asp:ValidationSummary ID="ValidationSummary1" runat="server" HeaderText="Fel inträffade. Korrigera det som är fel och försök igen." ValidationGroup="Edit" />
+                <asp:ValidationSummary ID="ValidationSummary2" runat="server" 
+                    HeaderText="Fel inträffade. Korrigera det som är fel och försök igen." />
+                <asp:ValidationSummary ID="ValidationSummary1" runat="server" 
+                    HeaderText="Fel inträffade. Korrigera det som är fel och försök igen." 
+                    ValidationGroup="Edit" />
             </div>
 
              <%-- Panel with label for successfull message --%>
@@ -73,9 +76,9 @@
                             <%#: Item.EmailAddress %>
                         </td>
                         <td>
-                            <asp:LinkButton CommandName="Edit" Text="Redigera" CausesValidation="false" runat="server"></asp:LinkButton>
-                            <asp:LinkButton CommandName="Delete" Text="Ta bort" CausesValidation="false" runat="server" 
-                             OnClientClick='<%# String.Format("return confirm(\"Vill du verkligen ta bort den här ({0} {1}) kontakten?\")", Item.FirstName, Item.LastName) %>'></asp:LinkButton>
+                            <asp:LinkButton CommandName="Edit" Text="Edit" CausesValidation="false" runat="server"></asp:LinkButton>
+                            <asp:LinkButton CommandName="Delete" Text="Delete" CausesValidation="false" runat="server" 
+                             OnClientClick='<%# String.Format("return confirm(\"Do you really want to delete this ({0} {1}) contact?\")", Item.FirstName, Item.LastName) %>'></asp:LinkButton>
                         </td>
                     </tr>
                 </ItemTemplate>
@@ -94,20 +97,20 @@
                     <tr>
                         <td>
                             <asp:TextBox ID="FirstNameTextBoxEdit" MaxLength="50" runat="server" Text='<%#: BindItem.FirstName %>' ValidationGroup="Edit"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="RequiredFirstNameEdit" runat="server" ErrorMessage="Ett förnamn måste anges." ControlToValidate="FirstNameTextBoxEdit" Display="None" ValidationGroup="Edit"></asp:RequiredFieldValidator>
+                            <asp:RequiredFieldValidator ID="RequiredFirstNameEdit" runat="server" ErrorMessage="You have to provide a first name." ControlToValidate="FirstNameTextBoxEdit" Display="None" ValidationGroup="Edit"></asp:RequiredFieldValidator>
                         </td>
                         <td>
                             <asp:TextBox ID="LastNameTextBoxEdit" MaxLength="50" runat="server" Text='<%#: BindItem.LastName %>' ValidationGroup="Edit"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="RequiredLastNameEdit" runat="server" ErrorMessage="Ett efternamn måste anges." ControlToValidate="LastNameTextBoxEdit" Display="None" ValidationGroup="Edit"></asp:RequiredFieldValidator>
+                            <asp:RequiredFieldValidator ID="RequiredLastNameEdit" runat="server" ErrorMessage="You have to provide a last name." ControlToValidate="LastNameTextBoxEdit" Display="None" ValidationGroup="Edit"></asp:RequiredFieldValidator>
                         </td>
                         <td>
                             <asp:TextBox ID="EmailTextBoxEdit" MaxLength="50" runat="server" Text='<%#: BindItem.EmailAddress %>' ValidationGroup="Edit"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="RequiredEmailEdit" runat="server" ErrorMessage="En epost-adress måste anges." ControlToValidate="EmailTextBoxEdit" Display="None" ValidationGroup="Edit"></asp:RequiredFieldValidator>
-                            <asp:RegularExpressionValidator ID="RegularExpressionEmailEdit" runat="server" ErrorMessage="Du måste ange en giltig epost-adress." ControlToValidate="EmailTextBoxEdit" Display="None" ValidationExpression="[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}" ValidationGroup="Edit"></asp:RegularExpressionValidator>
+                            <asp:RequiredFieldValidator ID="RequiredEmailEdit" runat="server" ErrorMessage="You have to provide an email-address." ControlToValidate="EmailTextBoxEdit" Display="None" ValidationGroup="Edit"></asp:RequiredFieldValidator>
+                            <asp:RegularExpressionValidator ID="RegularExpressionEmailEdit" runat="server" ErrorMessage="You have to provide a valid email-address." ControlToValidate="EmailTextBoxEdit" Display="None" ValidationExpression="[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}" ValidationGroup="Edit"></asp:RegularExpressionValidator>
                         </td>
                         <td>    
-                            <asp:LinkButton CommandName="Update" Text="Spara" runat="server"></asp:LinkButton>
-                            <asp:LinkButton CommandName="Cancel" Text="Avbryt" CausesValidation="false" runat="server"></asp:LinkButton>
+                            <asp:LinkButton CommandName="Update" Text="Update" runat="server"></asp:LinkButton>
+                            <asp:LinkButton CommandName="Cancel" Text="Cancel" CausesValidation="false" runat="server"></asp:LinkButton>
                         </td>
                     </tr>
                 </EditItemTemplate>
@@ -116,20 +119,20 @@
                     <tr>
                         <td>
                             <asp:TextBox ID="FirstNameTextBoxInsert" MaxLength="50" runat="server" Text='<%#: BindItem.FirstName %>'></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="RequiredFirstNameInsert" runat="server" ErrorMessage="Ett förnamn måste anges." ControlToValidate="FirstNameTextBoxInsert" Display="None"></asp:RequiredFieldValidator>
+                            <asp:RequiredFieldValidator ID="RequiredFirstNameInsert" runat="server" ErrorMessage="You have to provide a first name." ControlToValidate="FirstNameTextBoxInsert" Display="None"></asp:RequiredFieldValidator>
                         </td>
                         <td>
                             <asp:TextBox ID="LastNameTextBoxInsert" MaxLength="50" runat="server" Text='<%#: BindItem.LastName %>'></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="RequiredLastNameInsert" runat="server" ErrorMessage="Ett efternamn måste anges." ControlToValidate="LastNameTextBoxInsert" Display="None"></asp:RequiredFieldValidator>
+                            <asp:RequiredFieldValidator ID="RequiredLastNameInsert" runat="server" ErrorMessage="You have to provide a last name." ControlToValidate="LastNameTextBoxInsert" Display="None"></asp:RequiredFieldValidator>
                         </td>
                         <td>
                             <asp:TextBox ID="EmailTextBoxInsert" MaxLength="50" runat="server" Text='<%#: BindItem.EmailAddress %>'></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="RequiredEmailInsert" runat="server" ErrorMessage="En epost-adress måste anges." ControlToValidate="EmailTextBoxInsert" Display="None"></asp:RequiredFieldValidator>
-                            <asp:RegularExpressionValidator ID="RegularExpressionEmailInsert" runat="server" ErrorMessage="Du måste ange en giltig epost-adress." ControlToValidate="EmailTextBoxInsert" Display="None" ValidationExpression="[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}"></asp:RegularExpressionValidator>
+                            <asp:RequiredFieldValidator ID="RequiredEmailInsert" runat="server" ErrorMessage="You have to provide an email-address." ControlToValidate="EmailTextBoxInsert" Display="None"></asp:RequiredFieldValidator>
+                            <asp:RegularExpressionValidator ID="RegularExpressionEmailInsert" runat="server" ErrorMessage="You have to provide a valid email-address." ControlToValidate="EmailTextBoxInsert" Display="None" ValidationExpression="[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}"></asp:RegularExpressionValidator>
                         </td>
                         <td>    
-                            <asp:LinkButton CommandName="Insert" Text="Lägg till" runat="server"></asp:LinkButton>
-                            <asp:LinkButton CommandName="Cancel" Text="Avbryt" CausesValidation="false" runat="server"></asp:LinkButton>
+                            <asp:LinkButton CommandName="Insert" Text="Insert" runat="server"></asp:LinkButton>
+                            <asp:LinkButton CommandName="Cancel" Text="Cancel" CausesValidation="false" runat="server"></asp:LinkButton>
                         </td>
                     
                     </tr>
